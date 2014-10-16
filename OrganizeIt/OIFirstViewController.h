@@ -10,4 +10,6 @@
 
 @interface OIFirstViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UITextView *noteTextView;
+
 @end

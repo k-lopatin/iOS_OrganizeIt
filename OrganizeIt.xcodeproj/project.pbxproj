@@ -128,6 +128,8 @@
 		7E80F40C19EFBFD200CBF8B0 /* OrganizeIt */ = {
 			isa = PBXGroup;
 			children = (
+				7E80F44C19EFC08900CBF8B0 /* Resourses */,
+				7E80F44D19EFC08900CBF8B0 /* Sourses */,
 				7E80F41519EFBFD200CBF8B0 /* OIAppDelegate.h */,
 				7E80F41619EFBFD200CBF8B0 /* OIAppDelegate.m */,
 				7E80F41E19EFBFD300CBF8B0 /* MainStoryboard.storyboard */,
@@ -175,6 +177,36 @@
 				7E80F43E19EFBFD300CBF8B0 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7E80F44C19EFC08900CBF8B0 /* Resourses */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resourses;
+			sourceTree = "<group>";
+		};
+		7E80F44D19EFC08900CBF8B0 /* Sourses */ = {
+			isa = PBXGroup;
+			children = (
+				7E80F44E19EFC08900CBF8B0 /* CORE */,
+				7E80F44F19EFC08900CBF8B0 /* GUI */,
+			);
+			path = Sourses;
+			sourceTree = "<group>";
+		};
+		7E80F44E19EFC08900CBF8B0 /* CORE */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CORE;
+			sourceTree = "<group>";
+		};
+		7E80F44F19EFC08900CBF8B0 /* GUI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = GUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
