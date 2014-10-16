@@ -17,10 +17,8 @@
 		7E80F41B19EFBFD200CBF8B0 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E80F41A19EFBFD200CBF8B0 /* Default@2x.png */; };
 		7E80F41D19EFBFD300CBF8B0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E80F41C19EFBFD300CBF8B0 /* Default-568h@2x.png */; };
 		7E80F42019EFBFD300CBF8B0 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E80F41E19EFBFD300CBF8B0 /* MainStoryboard.storyboard */; };
-		7E80F42319EFBFD300CBF8B0 /* OIFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E80F42219EFBFD300CBF8B0 /* OIFirstViewController.m */; };
 		7E80F42519EFBFD300CBF8B0 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E80F42419EFBFD300CBF8B0 /* first.png */; };
 		7E80F42719EFBFD300CBF8B0 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E80F42619EFBFD300CBF8B0 /* first@2x.png */; };
-		7E80F42A19EFBFD300CBF8B0 /* OISecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E80F42919EFBFD300CBF8B0 /* OISecondViewController.m */; };
 		7E80F42C19EFBFD300CBF8B0 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E80F42B19EFBFD300CBF8B0 /* second.png */; };
 		7E80F42E19EFBFD300CBF8B0 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E80F42D19EFBFD300CBF8B0 /* second@2x.png */; };
 		7E80F43619EFBFD300CBF8B0 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E80F43519EFBFD300CBF8B0 /* SenTestingKit.framework */; };
@@ -28,6 +26,11 @@
 		7E80F43819EFBFD300CBF8B0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E80F40819EFBFD200CBF8B0 /* Foundation.framework */; };
 		7E80F44019EFBFD300CBF8B0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7E80F43E19EFBFD300CBF8B0 /* InfoPlist.strings */; };
 		7E80F44319EFBFD300CBF8B0 /* OrganizeItTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E80F44219EFBFD300CBF8B0 /* OrganizeItTests.m */; };
+		7E8599A719F0457C0012F73F /* OINewNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8599A419F0457C0012F73F /* OINewNoteViewController.m */; };
+		7E8599A819F0457C0012F73F /* OISecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8599A619F0457C0012F73F /* OISecondViewController.m */; };
+		7E8599B219F046220012F73F /* AbstractEntityGateway.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8599AC19F046220012F73F /* AbstractEntityGateway.m */; };
+		7E8599B319F046220012F73F /* CoreDataGateway+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8599AE19F046220012F73F /* CoreDataGateway+Additions.m */; };
+		7E8599B419F046220012F73F /* CoreDataGateway.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8599B019F046220012F73F /* CoreDataGateway.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,12 +58,8 @@
 		7E80F41A19EFBFD200CBF8B0 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		7E80F41C19EFBFD300CBF8B0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		7E80F41F19EFBFD300CBF8B0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		7E80F42119EFBFD300CBF8B0 /* OIFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OIFirstViewController.h; sourceTree = "<group>"; };
-		7E80F42219EFBFD300CBF8B0 /* OIFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OIFirstViewController.m; sourceTree = "<group>"; };
 		7E80F42419EFBFD300CBF8B0 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		7E80F42619EFBFD300CBF8B0 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		7E80F42819EFBFD300CBF8B0 /* OISecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OISecondViewController.h; sourceTree = "<group>"; };
-		7E80F42919EFBFD300CBF8B0 /* OISecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OISecondViewController.m; sourceTree = "<group>"; };
 		7E80F42B19EFBFD300CBF8B0 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		7E80F42D19EFBFD300CBF8B0 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		7E80F43419EFBFD300CBF8B0 /* OrganizeItTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrganizeItTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +68,17 @@
 		7E80F43F19EFBFD300CBF8B0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7E80F44119EFBFD300CBF8B0 /* OrganizeItTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrganizeItTests.h; sourceTree = "<group>"; };
 		7E80F44219EFBFD300CBF8B0 /* OrganizeItTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrganizeItTests.m; sourceTree = "<group>"; };
+		7E8599A319F0457C0012F73F /* OINewNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OINewNoteViewController.h; sourceTree = "<group>"; };
+		7E8599A419F0457C0012F73F /* OINewNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OINewNoteViewController.m; sourceTree = "<group>"; };
+		7E8599A519F0457C0012F73F /* OISecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OISecondViewController.h; sourceTree = "<group>"; };
+		7E8599A619F0457C0012F73F /* OISecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OISecondViewController.m; sourceTree = "<group>"; };
+		7E8599AB19F046220012F73F /* AbstractEntityGateway.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractEntityGateway.h; sourceTree = "<group>"; };
+		7E8599AC19F046220012F73F /* AbstractEntityGateway.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractEntityGateway.m; sourceTree = "<group>"; };
+		7E8599AD19F046220012F73F /* CoreDataGateway+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CoreDataGateway+Additions.h"; sourceTree = "<group>"; };
+		7E8599AE19F046220012F73F /* CoreDataGateway+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CoreDataGateway+Additions.m"; sourceTree = "<group>"; };
+		7E8599AF19F046220012F73F /* CoreDataGateway.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataGateway.h; sourceTree = "<group>"; };
+		7E8599B019F046220012F73F /* CoreDataGateway.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataGateway.m; sourceTree = "<group>"; };
+		7E8599B119F046220012F73F /* EntityGateway.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityGateway.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,12 +143,8 @@
 				7E80F41519EFBFD200CBF8B0 /* OIAppDelegate.h */,
 				7E80F41619EFBFD200CBF8B0 /* OIAppDelegate.m */,
 				7E80F41E19EFBFD300CBF8B0 /* MainStoryboard.storyboard */,
-				7E80F42119EFBFD300CBF8B0 /* OIFirstViewController.h */,
-				7E80F42219EFBFD300CBF8B0 /* OIFirstViewController.m */,
 				7E80F42419EFBFD300CBF8B0 /* first.png */,
 				7E80F42619EFBFD300CBF8B0 /* first@2x.png */,
-				7E80F42819EFBFD300CBF8B0 /* OISecondViewController.h */,
-				7E80F42919EFBFD300CBF8B0 /* OISecondViewController.m */,
 				7E80F42B19EFBFD300CBF8B0 /* second.png */,
 				7E80F42D19EFBFD300CBF8B0 /* second@2x.png */,
 				7E80F40D19EFBFD200CBF8B0 /* Supporting Files */,
@@ -189,6 +195,7 @@
 		7E80F44D19EFC08900CBF8B0 /* Sourses */ = {
 			isa = PBXGroup;
 			children = (
+				7E8599A919F046220012F73F /* Utilits */,
 				7E80F44E19EFC08900CBF8B0 /* CORE */,
 				7E80F44F19EFC08900CBF8B0 /* GUI */,
 			);
@@ -205,8 +212,42 @@
 		7E80F44F19EFC08900CBF8B0 /* GUI */ = {
 			isa = PBXGroup;
 			children = (
+				7E85999519F044C00012F73F /* Controllers */,
 			);
 			path = GUI;
+			sourceTree = "<group>";
+		};
+		7E85999519F044C00012F73F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7E8599A319F0457C0012F73F /* OINewNoteViewController.h */,
+				7E8599A419F0457C0012F73F /* OINewNoteViewController.m */,
+				7E8599A519F0457C0012F73F /* OISecondViewController.h */,
+				7E8599A619F0457C0012F73F /* OISecondViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		7E8599A919F046220012F73F /* Utilits */ = {
+			isa = PBXGroup;
+			children = (
+				7E8599AA19F046220012F73F /* CoreDataGatewayPatern */,
+			);
+			path = Utilits;
+			sourceTree = "<group>";
+		};
+		7E8599AA19F046220012F73F /* CoreDataGatewayPatern */ = {
+			isa = PBXGroup;
+			children = (
+				7E8599AB19F046220012F73F /* AbstractEntityGateway.h */,
+				7E8599AC19F046220012F73F /* AbstractEntityGateway.m */,
+				7E8599AD19F046220012F73F /* CoreDataGateway+Additions.h */,
+				7E8599AE19F046220012F73F /* CoreDataGateway+Additions.m */,
+				7E8599AF19F046220012F73F /* CoreDataGateway.h */,
+				7E8599B019F046220012F73F /* CoreDataGateway.m */,
+				7E8599B119F046220012F73F /* EntityGateway.h */,
+			);
+			path = CoreDataGatewayPatern;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,8 +367,11 @@
 			files = (
 				7E80F41319EFBFD200CBF8B0 /* main.m in Sources */,
 				7E80F41719EFBFD200CBF8B0 /* OIAppDelegate.m in Sources */,
-				7E80F42319EFBFD300CBF8B0 /* OIFirstViewController.m in Sources */,
-				7E80F42A19EFBFD300CBF8B0 /* OISecondViewController.m in Sources */,
+				7E8599A719F0457C0012F73F /* OINewNoteViewController.m in Sources */,
+				7E8599A819F0457C0012F73F /* OISecondViewController.m in Sources */,
+				7E8599B219F046220012F73F /* AbstractEntityGateway.m in Sources */,
+				7E8599B319F046220012F73F /* CoreDataGateway+Additions.m in Sources */,
+				7E8599B419F046220012F73F /* CoreDataGateway.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,6 +552,7 @@
 				7E80F44819EFBFD300CBF8B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7E80F44919EFBFD300CBF8B0 /* Build configuration list for PBXNativeTarget "OrganizeItTests" */ = {
 			isa = XCConfigurationList;
@@ -516,6 +561,7 @@
 				7E80F44B19EFBFD300CBF8B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
