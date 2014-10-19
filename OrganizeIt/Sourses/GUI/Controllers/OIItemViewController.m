@@ -7,6 +7,7 @@
 //
 
 #import "OIItemViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface OIItemViewController ()
 
@@ -29,7 +30,11 @@
 {
     [super viewDidLoad];
     
+    self.noteTextView.layer.borderWidth = 1.0f;
+    self.noteTextView.layer.borderColor = [[UIColor grayColor] CGColor];
+    
     if(self.editMode == YES){
+        self.navigationController.title = @"Edit";
         NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
         NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Item"];
         NSPredicate *predicateForCurCatID = [NSPredicate predicateWithFormat:@"id == %d", [self.itemId integerValue]];

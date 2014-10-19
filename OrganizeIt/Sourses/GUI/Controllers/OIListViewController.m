@@ -74,14 +74,9 @@
                            message:@""
                            delegate:self
                            cancelButtonTitle:NSLocalizedString(@"Cancel", nil)                           
-                           otherButtonTitles:@"Add Category", @"Add note", nil];
+                           otherButtonTitles:@"Add Category", @"Add note", @"Add photo", nil];
     alert.alertViewStyle = UIAlertViewStyleDefault;
     [alert show];
-    /*UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    OIItemViewController *viewController = (OIItemViewController *)[storyboard instantiateViewControllerWithIdentifier:@"AddNewItem"];
-    viewController.categoryId = self.curCategoryId;
-    viewController.editMode = NO;
-    [self presentViewController:viewController animated:YES completion:nil];*/
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
@@ -97,36 +92,30 @@
         OIItemViewController *viewController = (OIItemViewController *)[storyboard instantiateViewControllerWithIdentifier:@"AddNewCategory"];
         viewController.categoryId = self.curCategoryId;
         [self presentViewController:viewController animated:YES completion:nil];
+    } else if( buttonIndex == 3 ) {
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        picker.allowsEditing = YES;
+        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        
+        [self presentViewController:picker animated:YES completion:NULL];
     }
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
-    /*NSString *name = [[alertView textFieldAtIndex:0] text]; //name from input
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
     
-    if( name.length > 1 ){
-        
-        NSManagedObjectContext *context = [self managedObjectContext];
-        NSManagedObject *newCategory = [NSEntityDescription insertNewObjectForEntityForName:@"Category" inManagedObjectContext:context];
-        
-        [newCategory setValue:name forKey:@"name"];
-        
-        //Create unique id for new element
-        NSNumber *itemId = [[NSNumber alloc] initWithInt:[NSDate timeIntervalSinceReferenceDate]+self.newCategoryId ];
-        [newCategory setValue:itemId forKey:@"id"];
-        
-        [newCategory setValue:self.curCategoryId forKey:@"parentId"];
-        
-        NSError *error = nil;
-        // Save the object to persistent store
-        if (![context save:&error]) {
-            NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
-        }
-        
-        [self.curCategories insertObject:newCategory atIndex:0];
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-        [self.tableView insertRowsAtIndexPaths:@[indexPath]
-                              withRowAnimation:UITableViewRowAnimationAutomatic];
-        
-        self.newCategoryId++;
-    } */   
+    [self.curItems insertObject:chosenImage atIndex:0];
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
 }
 
 #pragma mark - Table View
@@ -165,9 +154,9 @@
         NSString *text = [category valueForKey:@"name"];
         cell.textLabel.text = text;
     } else {
-       NSManagedObject *item = [self.curItems objectAtIndex:indexPath.row];
-       NSString *text = [item valueForKey:@"content"];
-       cell.textLabel.text = text;
+            NSManagedObject *item = [self.curItems objectAtIndex:indexPath.row];
+            NSString *text = [item valueForKey:@"content"];
+            cell.textLabel.text = text;       
     }
     return cell;
 }
@@ -180,17 +169,32 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSManagedObject *tempCat = [self.curCategories objectAtIndex:indexPath.row];
         NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
-        [managedObjectContext deleteObject:tempCat];
-        // remove children of this element
-        [self removeChildrenById:[tempCat valueForKey:@"id"]];
+
+        if(indexPath.section == 0){
+            NSManagedObject *tempCat = [self.curCategories objectAtIndex:indexPath.row];
+            [managedObjectContext deleteObject:tempCat];
+            // remove children of this element
+            [self removeChildrenById:[tempCat valueForKey:@"id"]];
+            [self.curCategories removeObjectAtIndex:indexPath.row];
+            
+            
+            
+        } else {
+            NSManagedObject *tempNote = [self.curItems objectAtIndex:indexPath.row];
+            [managedObjectContext deleteObject:tempNote];
+            
+            [self.curItems removeObjectAtIndex:indexPath.row];
+        }
+        
         NSError *error = nil;
         if (![managedObjectContext save:&error]) {
             NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
         }
-        [self.curCategories removeObjectAtIndex:indexPath.row];
+        
+        
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [self.tableView reloadData];
     } 
 }
 
@@ -200,6 +204,15 @@
     NSPredicate *predicateID = [NSPredicate predicateWithFormat:@"parentId == %d", [id_ integerValue]];
     [fetchRequest setPredicate:predicateID];
     NSMutableArray *CategoriesToRemove = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    
+    fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Item"];
+    predicateID = [NSPredicate predicateWithFormat:@"categoryId == %d", [id_ integerValue]];    
+    [fetchRequest setPredicate:predicateID];
+    NSMutableArray *itemsToRemove = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    
+    for(NSManagedObject *n in itemsToRemove){
+        [managedObjectContext deleteObject:n];
+    }
     
     /*
      Remove every child of the element

@@ -10,7 +10,7 @@
 
 extern NSNumber *const ROOT_CATEGROY_ID;
 
-@interface OIListViewController : UITableViewController
+@interface OIListViewController : UITableViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, strong) NSMutableArray *curCategories;
 @property (nonatomic, strong) NSMutableArray *curItems;
