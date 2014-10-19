@@ -1,0 +1,73 @@
+//
+//  OIItemViewController.m
+//  OrganizeIt
+//
+//  Created by lk1195 on 10/19/14.
+//  Copyright (c) 2014 lk1195. All rights reserved.
+//
+
+#import "OIItemViewController.h"
+
+@interface OIItemViewController ()
+
+@end
+
+@implementation OIItemViewController
+
+@synthesize categoryId;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+	// Do any additional setup after loading the view.
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)cancel:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)save:(id)sender {
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSManagedObject *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:context];
+    
+    //Create unique id for new element
+    NSNumber *itemId = [[NSNumber alloc] initWithInt:[NSDate timeIntervalSinceReferenceDate] ];
+    [newItem setValue:itemId forKey:@"id"];
+    
+    [newItem setValue:self.categoryId forKey:@"categoryId"];
+    
+    [newItem setValue:[self.noteTextView text] forKey:@"content"];
+    
+    NSError *error = nil;
+    // Save the object to persistent store
+    if (![context save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (NSManagedObjectContext *)managedObjectContext {
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
+
+@end
