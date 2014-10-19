@@ -11,6 +11,8 @@
 @interface OIItemViewController : UIViewController
 
 @property (weak, nonatomic) NSNumber *categoryId;
+@property (strong, nonatomic) NSNumber *itemId;
+@property (nonatomic, assign) BOOL editMode;
 
 @property (weak, nonatomic) IBOutlet UITextView *noteTextView;
 

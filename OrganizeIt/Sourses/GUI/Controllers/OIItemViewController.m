@@ -28,6 +28,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    if(self.editMode == YES){
+        NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Item"];
+        NSPredicate *predicateForCurCatID = [NSPredicate predicateWithFormat:@"id == %d", [self.itemId integerValue]];
+        [fetchRequest setPredicate:predicateForCurCatID];
+        NSArray *curItemTempArray = [managedObjectContext executeFetchRequest:fetchRequest error:nil];
+        self.noteTextView.text = [[curItemTempArray objectAtIndex:0]
+                                  valueForKey:@"content"];
+        self.categoryId = [[curItemTempArray objectAtIndex:0]
+                           valueForKey:@"content"];
+    }
 	// Do any additional setup after loading the view.
 }
 
@@ -42,6 +54,17 @@
 }
 
 - (IBAction)save:(id)sender {
+    
+    if(self.editMode == YES){
+        [self updateItem];
+    } else {
+        [self saveNewItem];
+    }
+    
+        [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void) saveNewItem {
     NSManagedObjectContext *context = [self managedObjectContext];
     NSManagedObject *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:context];
     
@@ -58,7 +81,24 @@
     if (![context save:&error]) {
         NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
     }
-    [self dismissViewControllerAnimated:YES completion:nil];
+
+}
+
+-(void) updateItem {
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSPredicate *predicateForCurCatID = [NSPredicate predicateWithFormat:@"id == %d", [self.itemId integerValue]];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Item"];
+    [fetchRequest setPredicate:predicateForCurCatID];
+    NSManagedObject *item = [[context executeFetchRequest:fetchRequest error:nil] lastObject];
+    
+    [item setValue:[self.noteTextView text] forKey:@"content"];
+    
+    NSError *error = nil;
+    // Save the object to persistent store
+    if (![context save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    }
+    
 }
 
 - (NSManagedObjectContext *)managedObjectContext {

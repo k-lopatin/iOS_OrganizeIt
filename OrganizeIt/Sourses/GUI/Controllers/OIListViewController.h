@@ -13,6 +13,8 @@ extern NSNumber *const ROOT_CATEGROY_ID;
 @interface OIListViewController : UITableViewController
 
 @property (nonatomic, strong) NSMutableArray *curCategories;
+@property (nonatomic, strong) NSMutableArray *curItems;
+
 @property (nonatomic) int newCategoryId;
 @property (nonatomic, strong) NSNumber *curCategoryId;
 @property (nonatomic, strong) NSManagedObject *curCategory;

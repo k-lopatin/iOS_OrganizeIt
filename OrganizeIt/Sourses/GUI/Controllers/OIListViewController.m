@@ -80,6 +80,7 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     OIItemViewController *viewController = (OIItemViewController *)[storyboard instantiateViewControllerWithIdentifier:@"AddNewItem"];
     viewController.categoryId = self.curCategoryId;
+    viewController.editMode = NO;
     [self presentViewController:viewController animated:YES completion:nil];
 }
 
@@ -119,20 +120,42 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.curCategories.count;
+    int a = 0;
+    if(section == a){
+        return self.curCategories.count;
+    } else {
+        return self.curItems.count;
+    }
+}
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    int a = 0;
+    if(section == a){
+        return @"Categories";
+    } else {
+        return @"Notes";
+    }
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    NSManagedObject *category = [self.curCategories objectAtIndex:indexPath.row];
-    NSString *text = [category valueForKey:@"name"];
-    cell.textLabel.text = text;
+    int a = 0;
+    if(indexPath.section == a){
+        //NSManagedObject *category = [self.curCategories objectAtIndex:indexPath.row];
+        //NSString *text = [category valueForKey:@"name"];
+        //cell.textLabel.text = text;
+    } else {
+       NSManagedObject *item = [self.curItems objectAtIndex:indexPath.row];
+       NSString *text = [item valueForKey:@"content"];
+       cell.textLabel.text = text;
+    }
     return cell;
 }
 
@@ -176,10 +199,20 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // set current category to selected 
-    self.curCategoryId = [[self.curCategories objectAtIndex:indexPath.row] valueForKey:@"id"];
+    // set current category to selected
+    int a = 0;
+    if(indexPath.section == a){
+        self.curCategoryId = [[self.curCategories objectAtIndex:indexPath.row] valueForKey:@"id"];
+        [self updateTableView];
+    } else {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        OIItemViewController *viewController = (OIItemViewController *)[storyboard instantiateViewControllerWithIdentifier:@"AddNewItem"];
+        viewController.itemId = [[self.curItems objectAtIndex:indexPath.row] valueForKey:@"id"];
+        viewController.editMode = YES;
+        [self presentViewController:viewController animated:YES completion:nil];
+    }
     
-    [self updateTableView];
+        
 }
 
 
@@ -199,7 +232,7 @@
     [fetchRequest setPredicate:predicateID];
     self.curCategories = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
     
-    [self.tableView reloadData];
+    
     
     if([self.curCategoryId isEqual: @0]){
         self.navigationItem.title = NSLocalizedString(@"Main Title", nil);
@@ -214,9 +247,23 @@
         self.navigationItem.leftBarButtonItem.enabled = true;
     }
     
+    [self updateItems];
+    
     [self.tableView reloadData];
+    
+    
 }
 
+-(void) updateItems {
+    [self.curItems removeAllObjects];
+    
+    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Item"];
+    NSPredicate *predicateID = [NSPredicate predicateWithFormat:@"categoryId == %d", [self.curCategoryId integerValue]];
+    [fetchRequest setPredicate:predicateID];
+    self.curItems = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+
+}
 
 - (NSManagedObjectContext *)managedObjectContext {
     NSManagedObjectContext *context = nil;
