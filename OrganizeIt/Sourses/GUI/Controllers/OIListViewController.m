@@ -69,24 +69,37 @@
     /*
      Add category dialog window 
      */
-    /*UIAlertView * alert = [[UIAlertView alloc]
-                           initWithTitle:NSLocalizedString(@"Add dialog title", nil)
-                           message:NSLocalizedString(@"Add dialog text", nil)
+    UIAlertView * alert = [[UIAlertView alloc]
+                           initWithTitle:@"Adding item"
+                           message:@""
                            delegate:self
-                           cancelButtonTitle:NSLocalizedString(@"OK", nil)                           
-                           otherButtonTitles:nil];
-    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
-    [alert show];*/
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+                           cancelButtonTitle:NSLocalizedString(@"Cancel", nil)                           
+                           otherButtonTitles:@"Add Category", @"Add note", nil];
+    alert.alertViewStyle = UIAlertViewStyleDefault;
+    [alert show];
+    /*UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     OIItemViewController *viewController = (OIItemViewController *)[storyboard instantiateViewControllerWithIdentifier:@"AddNewItem"];
     viewController.categoryId = self.curCategoryId;
     viewController.editMode = NO;
-    [self presentViewController:viewController animated:YES completion:nil];
+    [self presentViewController:viewController animated:YES completion:nil];*/
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
-    NSString *name = [[alertView textFieldAtIndex:0] text]; //name from input
+    if( buttonIndex == 2 ){
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        OIItemViewController *viewController = (OIItemViewController *)[storyboard instantiateViewControllerWithIdentifier:@"AddNewItem"];
+        viewController.categoryId = self.curCategoryId;
+        viewController.editMode = NO;
+        [self presentViewController:viewController animated:YES completion:nil];
+    } else if( buttonIndex == 1 ) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        OIItemViewController *viewController = (OIItemViewController *)[storyboard instantiateViewControllerWithIdentifier:@"AddNewCategory"];
+        viewController.categoryId = self.curCategoryId;
+        [self presentViewController:viewController animated:YES completion:nil];
+    }
+    
+    /*NSString *name = [[alertView textFieldAtIndex:0] text]; //name from input
     
     if( name.length > 1 ){
         
@@ -113,7 +126,7 @@
                               withRowAnimation:UITableViewRowAnimationAutomatic];
         
         self.newCategoryId++;
-    }    
+    } */   
 }
 
 #pragma mark - Table View
@@ -148,9 +161,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     int a = 0;
     if(indexPath.section == a){
-        //NSManagedObject *category = [self.curCategories objectAtIndex:indexPath.row];
-        //NSString *text = [category valueForKey:@"name"];
-        //cell.textLabel.text = text;
+        NSManagedObject *category = [self.curCategories objectAtIndex:indexPath.row];
+        NSString *text = [category valueForKey:@"name"];
+        cell.textLabel.text = text;
     } else {
        NSManagedObject *item = [self.curItems objectAtIndex:indexPath.row];
        NSString *text = [item valueForKey:@"content"];
