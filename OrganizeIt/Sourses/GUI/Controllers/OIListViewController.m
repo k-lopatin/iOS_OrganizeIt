@@ -177,17 +177,8 @@
             NSString *text = [item valueForKey:@"content"];
             cell.textLabel.text = text;
         } else {
-            static NSString* cellIdentifier1 = @"ImageCell";
-            OIImageCell *imageCell = (OIImageCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier1 forIndexPath:indexPath];
-            if (imageCell == nil) {
-                NSArray *nib = [[NSBundle mainBundle] loadNibNamed:cellIdentifier1 owner:nil options:nil];
-                imageCell = (OIImageCell*)[nib objectAtIndex:0];
-            }
-            NSString *imageUrl = [item valueForKey:@"file"];
-            //UIImage *image = [UIImage imageNamed:imageUrl];
-            //[imageCell.noteImageView setImage:[UIImage imageNamed:imageUrl] ];
-            [[imageCell noteImageView] setImage:[UIImage imageNamed:imageUrl]];
-            return imageCell;
+            NSString *text = @"IMAGE";
+            cell.textLabel.text = text;
         }
     }
     return cell;
