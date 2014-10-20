@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E09389819F4BDE30039BB17 /* OIImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E09389719F4BDE30039BB17 /* OIImageCell.m */; };
+		7E09389A19F4BE710039BB17 /* OIImageCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E09389919F4BE700039BB17 /* OIImageCellView.xib */; };
 		7E4C207B19F3E37E00BE5CA9 /* OIItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4C207A19F3E37E00BE5CA9 /* OIItemViewController.m */; };
 		7E7D07B219F43AD2004D0657 /* OICategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7D07B119F43AD2004D0657 /* OICategoryViewController.m */; };
 		7E80F40719EFBFD200CBF8B0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E80F40619EFBFD200CBF8B0 /* UIKit.framework */; };
@@ -44,6 +46,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7E09389619F4BDE20039BB17 /* OIImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OIImageCell.h; sourceTree = "<group>"; };
+		7E09389719F4BDE30039BB17 /* OIImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIImageCell.m; sourceTree = "<group>"; };
+		7E09389919F4BE700039BB17 /* OIImageCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OIImageCellView.xib; sourceTree = "<group>"; };
 		7E4C207919F3E37E00BE5CA9 /* OIItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OIItemViewController.h; sourceTree = "<group>"; };
 		7E4C207A19F3E37E00BE5CA9 /* OIItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIItemViewController.m; sourceTree = "<group>"; };
 		7E7D07B019F43AD2004D0657 /* OICategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OICategoryViewController.h; sourceTree = "<group>"; };
@@ -103,6 +108,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E09389519F4BDBD0039BB17 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7E09389619F4BDE20039BB17 /* OIImageCell.h */,
+				7E09389719F4BDE30039BB17 /* OIImageCell.m */,
+				7E09389919F4BE700039BB17 /* OIImageCellView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		7E80F3FA19EFBFD200CBF8B0 = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +219,7 @@
 		7E80F44F19EFC08900CBF8B0 /* GUI */ = {
 			isa = PBXGroup;
 			children = (
+				7E09389519F4BDBD0039BB17 /* Views */,
 				7E85999519F044C00012F73F /* Controllers */,
 			);
 			path = GUI;
@@ -320,6 +336,7 @@
 				7E80F42C19EFBFD300CBF8B0 /* second.png in Resources */,
 				7E80F42E19EFBFD300CBF8B0 /* second@2x.png in Resources */,
 				7E81E37B19F3DAB40001349C /* Localizable.strings in Resources */,
+				7E09389A19F4BE710039BB17 /* OIImageCellView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +377,7 @@
 				7E81B47F19F3A37E003E6654 /* OICategoryModel.xcdatamodeld in Sources */,
 				7E4C207B19F3E37E00BE5CA9 /* OIItemViewController.m in Sources */,
 				7E7D07B219F43AD2004D0657 /* OICategoryViewController.m in Sources */,
+				7E09389819F4BDE30039BB17 /* OIImageCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

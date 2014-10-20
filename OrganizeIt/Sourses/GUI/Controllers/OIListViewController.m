@@ -8,6 +8,7 @@
 
 #import "OIListViewController.h"
 #import "OIItemViewController.h"
+#import "OIImageCell.h"
 
 @implementation OIListViewController
 
@@ -105,8 +106,24 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    NSURL *imageUrl = info[UIImagePickerControllerReferenceURL];
     
-    [self.curItems insertObject:chosenImage atIndex:0];
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSManagedObject *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:context];
+    
+    //Create unique id for new element
+    NSNumber *itemId = [[NSNumber alloc] initWithInt:[NSDate timeIntervalSinceReferenceDate] ];
+    [newItem setValue:itemId forKey:@"id"];
+    
+    [newItem setValue:self.curCategoryId forKey:@"categoryId"];
+    
+    [newItem setValue:[imageUrl absoluteString] forKey:@"file"];
+    
+    NSError *error = nil;
+    // Save the object to persistent store
+    if (![context save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    }
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
@@ -147,16 +164,31 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    int a = 0;
-    if(indexPath.section == a){
+    UITableViewCell *cell;
+    if(indexPath.section == 0){
+        cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
         NSManagedObject *category = [self.curCategories objectAtIndex:indexPath.row];
         NSString *text = [category valueForKey:@"name"];
         cell.textLabel.text = text;
     } else {
-            NSManagedObject *item = [self.curItems objectAtIndex:indexPath.row];
+        cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+        NSManagedObject *item = [self.curItems objectAtIndex:indexPath.row];
+        if( [[item valueForKey:@"file"] length] < 2 ){
             NSString *text = [item valueForKey:@"content"];
-            cell.textLabel.text = text;       
+            cell.textLabel.text = text;
+        } else {
+            static NSString* cellIdentifier1 = @"ImageCell";
+            OIImageCell *imageCell = (OIImageCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier1 forIndexPath:indexPath];
+            if (imageCell == nil) {
+                NSArray *nib = [[NSBundle mainBundle] loadNibNamed:cellIdentifier1 owner:nil options:nil];
+                imageCell = (OIImageCell*)[nib objectAtIndex:0];
+            }
+            NSString *imageUrl = [item valueForKey:@"file"];
+            //UIImage *image = [UIImage imageNamed:imageUrl];
+            //[imageCell.noteImageView setImage:[UIImage imageNamed:imageUrl] ];
+            [[imageCell noteImageView] setImage:[UIImage imageNamed:imageUrl]];
+            return imageCell;
+        }
     }
     return cell;
 }

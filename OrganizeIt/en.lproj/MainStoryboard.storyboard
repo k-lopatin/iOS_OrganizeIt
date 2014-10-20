@@ -45,6 +45,30 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                             </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="ImageCell" rowHeight="113" id="axt-uZ-cGU" customClass="OIImageCell">
+                                <rect key="frame" x="0.0" y="66" width="320" height="113"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="112"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iwZ-qA-7Mh">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="243" id="MZK-xl-GcC"/>
+                                                <constraint firstAttribute="height" constant="92" id="OqG-vw-lwC"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="iwZ-qA-7Mh" firstAttribute="leading" secondItem="axt-uZ-cGU" secondAttribute="leading" constant="34" id="IyK-gI-aNL"/>
+                                    <constraint firstItem="iwZ-qA-7Mh" firstAttribute="top" secondItem="axt-uZ-cGU" secondAttribute="top" constant="9" id="Vtp-py-VgA"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="noteImageView" destination="iwZ-qA-7Mh" id="FdY-pt-ttR"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                     </tableView>
                     <navigationItem key="navigationItem" id="aQE-Zx-EDT"/>
