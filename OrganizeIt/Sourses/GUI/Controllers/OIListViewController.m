@@ -183,14 +183,17 @@
         NSManagedObject *category = [self.curCategories objectAtIndex:indexPath.row];
         NSString *text = [category valueForKey:@"name"];
         cell.textLabel.text = text;
+        cell.imageView.image = nil;
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
         NSManagedObject *item = [self.curItems objectAtIndex:indexPath.row];
         if( [[item valueForKey:@"file"] length] < 2 ){
             NSString *text = [item valueForKey:@"content"];
-            cell.textLabel.text = text;
+            cell.textLabel.text = text;            
+            cell.imageView.image = nil;
         } else {
             cell.imageView.image = [UIImage imageWithContentsOfFile:[item valueForKey:@"file"]];
+            cell.textLabel.text = @"View large";
         }
     }
     return cell;
