@@ -124,6 +124,46 @@
             </objects>
             <point key="canvasLocation" x="558" y="615"/>
         </scene>
+        <!--Image View Controller-->
+        <scene sceneID="LEP-zE-I1O">
+            <objects>
+                <viewController restorationIdentifier="NoteImageView" storyboardIdentifier="NoteImageView" id="gAl-1C-t5A" customClass="OIImageViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eed-hn-hGB">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9ZD-CF-WlQ">
+                                <items>
+                                    <navigationItem title="Title" id="2xl-ew-f1a">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="5wg-Ot-CyO">
+                                            <connections>
+                                                <action selector="backClick:" destination="gAl-1C-t5A" id="UIu-Fd-O8d"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bEs-qt-r1l"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bEs-qt-r1l" firstAttribute="bottom" secondItem="eed-hn-hGB" secondAttribute="bottom" type="default" id="ESv-Rc-9bU"/>
+                            <constraint firstItem="9ZD-CF-WlQ" firstAttribute="trailing" secondItem="eed-hn-hGB" secondAttribute="trailing" type="default" id="UzC-wz-pPD"/>
+                            <constraint firstItem="bEs-qt-r1l" firstAttribute="leading" secondItem="eed-hn-hGB" secondAttribute="leading" type="default" id="aXW-bd-3M1"/>
+                            <constraint firstItem="bEs-qt-r1l" firstAttribute="top" secondItem="9ZD-CF-WlQ" secondAttribute="bottom" type="default" id="dsf-ay-pgA"/>
+                            <constraint firstItem="9ZD-CF-WlQ" firstAttribute="top" secondItem="eed-hn-hGB" secondAttribute="top" type="default" id="hlO-wC-Xqu"/>
+                            <constraint firstItem="9ZD-CF-WlQ" firstAttribute="leading" secondItem="eed-hn-hGB" secondAttribute="leading" type="default" id="pAm-MH-4ud"/>
+                            <constraint firstItem="bEs-qt-r1l" firstAttribute="trailing" secondItem="eed-hn-hGB" secondAttribute="trailing" type="default" id="uzm-96-9TV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="noteImageView" destination="bEs-qt-r1l" id="uXM-lX-wHB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="790-GE-Uoa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="913" y="616"/>
+        </scene>
         <!--Item View Controller-->
         <scene sceneID="zN0-mh-sQ6">
             <objects>

@@ -8,6 +8,7 @@
 
 #import "OIListViewController.h"
 #import "OIItemViewController.h"
+#import "OIImageViewController.h"
 #import "OIImageCell.h"
 
 @implementation OIListViewController
@@ -105,8 +106,20 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
-    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
-    NSURL *imageUrl = info[UIImagePickerControllerReferenceURL];
+       
+    //obtaining saving path
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSNumber *itemPah = [[NSNumber alloc] initWithInt:[NSDate timeIntervalSinceReferenceDate] ];
+    NSString *imagePath = [documentsDirectory stringByAppendingPathComponent:[itemPah stringValue]];
+    
+    //extracting image from the picker and saving it
+    NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
+    if ([mediaType isEqualToString:@"public.image"]){
+        UIImage *editedImage = [info objectForKey:UIImagePickerControllerEditedImage];
+        NSData *webData = UIImagePNGRepresentation(editedImage);
+        [webData writeToFile:imagePath atomically:YES];
+    }
     
     NSManagedObjectContext *context = [self managedObjectContext];
     NSManagedObject *newItem = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:context];
@@ -117,7 +130,7 @@
     
     [newItem setValue:self.curCategoryId forKey:@"categoryId"];
     
-    [newItem setValue:[imageUrl absoluteString] forKey:@"file"];
+    [newItem setValue:imagePath forKey:@"file"];
     
     NSError *error = nil;
     // Save the object to persistent store
@@ -177,8 +190,7 @@
             NSString *text = [item valueForKey:@"content"];
             cell.textLabel.text = text;
         } else {
-            NSString *text = @"IMAGE";
-            cell.textLabel.text = text;
+            cell.imageView.image = [UIImage imageWithContentsOfFile:[item valueForKey:@"file"]];
         }
     }
     return cell;
@@ -254,13 +266,22 @@
         self.curCategoryId = [[self.curCategories objectAtIndex:indexPath.row] valueForKey:@"id"];
         [self updateTableView];
     } else {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-        OIItemViewController *viewController = (OIItemViewController *)[storyboard instantiateViewControllerWithIdentifier:@"AddNewItem"];
-        viewController.itemId = [[self.curItems objectAtIndex:indexPath.row] valueForKey:@"id"];
-        viewController.editMode = YES;
-        [self presentViewController:viewController animated:YES completion:nil];
-    }
-    
+        
+        if( [[[self.curItems objectAtIndex:indexPath.row]
+              valueForKey:@"file"] length] > 2 ){
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+            OIImageViewController *viewController = (OIImageViewController *)[storyboard instantiateViewControllerWithIdentifier:@"NoteImageView"];
+            viewController.imageUrl = [[self.curItems objectAtIndex:indexPath.row] valueForKey:@"file"];
+            [self presentViewController:viewController animated:YES completion:nil];
+        } else {
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+            OIItemViewController *viewController = (OIItemViewController *)[storyboard instantiateViewControllerWithIdentifier:@"AddNewItem"];
+            viewController.itemId = [[self.curItems objectAtIndex:indexPath.row] valueForKey:@"id"];
+            viewController.editMode = YES;
+            [self presentViewController:viewController animated:YES completion:nil];
+        }        
+        
+    }    
         
 }
 

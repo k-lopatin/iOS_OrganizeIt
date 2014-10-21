@@ -11,6 +11,7 @@
 		7E09389A19F4BE710039BB17 /* OIImageCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E09389919F4BE700039BB17 /* OIImageCellView.xib */; };
 		7E4C207B19F3E37E00BE5CA9 /* OIItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4C207A19F3E37E00BE5CA9 /* OIItemViewController.m */; };
 		7E7D07B219F43AD2004D0657 /* OICategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7D07B119F43AD2004D0657 /* OICategoryViewController.m */; };
+		7E7F2C7A19F6591C001A6597 /* OIImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7F2C7919F6591C001A6597 /* OIImageViewController.m */; };
 		7E80F40719EFBFD200CBF8B0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E80F40619EFBFD200CBF8B0 /* UIKit.framework */; };
 		7E80F40919EFBFD200CBF8B0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E80F40819EFBFD200CBF8B0 /* Foundation.framework */; };
 		7E80F41119EFBFD200CBF8B0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7E80F40F19EFBFD200CBF8B0 /* InfoPlist.strings */; };
@@ -53,6 +54,8 @@
 		7E4C207A19F3E37E00BE5CA9 /* OIItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIItemViewController.m; sourceTree = "<group>"; };
 		7E7D07B019F43AD2004D0657 /* OICategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OICategoryViewController.h; sourceTree = "<group>"; };
 		7E7D07B119F43AD2004D0657 /* OICategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OICategoryViewController.m; sourceTree = "<group>"; };
+		7E7F2C7819F6591C001A6597 /* OIImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OIImageViewController.h; sourceTree = "<group>"; };
+		7E7F2C7919F6591C001A6597 /* OIImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIImageViewController.m; sourceTree = "<group>"; };
 		7E80F40319EFBFD200CBF8B0 /* OrganizeIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrganizeIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E80F40619EFBFD200CBF8B0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7E80F40819EFBFD200CBF8B0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -250,6 +253,8 @@
 				7E4C207A19F3E37E00BE5CA9 /* OIItemViewController.m */,
 				7E7D07B019F43AD2004D0657 /* OICategoryViewController.h */,
 				7E7D07B119F43AD2004D0657 /* OICategoryViewController.m */,
+				7E7F2C7819F6591C001A6597 /* OIImageViewController.h */,
+				7E7F2C7919F6591C001A6597 /* OIImageViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -378,6 +383,7 @@
 				7E4C207B19F3E37E00BE5CA9 /* OIItemViewController.m in Sources */,
 				7E7D07B219F43AD2004D0657 /* OICategoryViewController.m in Sources */,
 				7E09389819F4BDE30039BB17 /* OIImageCell.m in Sources */,
+				7E7F2C7A19F6591C001A6597 /* OIImageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
