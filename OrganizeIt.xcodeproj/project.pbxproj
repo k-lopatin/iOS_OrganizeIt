@@ -11,6 +11,11 @@
 		7E09389A19F4BE710039BB17 /* OIImageCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E09389919F4BE700039BB17 /* OIImageCellView.xib */; };
 		7E4C207B19F3E37E00BE5CA9 /* OIItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4C207A19F3E37E00BE5CA9 /* OIItemViewController.m */; };
 		7E7D07B219F43AD2004D0657 /* OICategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7D07B119F43AD2004D0657 /* OICategoryViewController.m */; };
+		7E7E948C19F6CB7F00BC25B1 /* AbstractEntityGateway.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7E948619F6CB7F00BC25B1 /* AbstractEntityGateway.m */; };
+		7E7E948D19F6CB7F00BC25B1 /* CoreDataGateway+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7E948819F6CB7F00BC25B1 /* CoreDataGateway+Additions.m */; };
+		7E7E948E19F6CB7F00BC25B1 /* CoreDataGateway.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7E948A19F6CB7F00BC25B1 /* CoreDataGateway.m */; };
+		7E7E949219F6CDED00BC25B1 /* OICategoryGateway.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7E949119F6CDED00BC25B1 /* OICategoryGateway.m */; };
+		7E7E949519F6D2EA00BC25B1 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7E949419F6D2EA00BC25B1 /* Category.m */; };
 		7E7F2C7A19F6591C001A6597 /* OIImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7F2C7919F6591C001A6597 /* OIImageViewController.m */; };
 		7E80F40719EFBFD200CBF8B0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E80F40619EFBFD200CBF8B0 /* UIKit.framework */; };
 		7E80F40919EFBFD200CBF8B0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E80F40819EFBFD200CBF8B0 /* Foundation.framework */; };
@@ -54,6 +59,17 @@
 		7E4C207A19F3E37E00BE5CA9 /* OIItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIItemViewController.m; sourceTree = "<group>"; };
 		7E7D07B019F43AD2004D0657 /* OICategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OICategoryViewController.h; sourceTree = "<group>"; };
 		7E7D07B119F43AD2004D0657 /* OICategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OICategoryViewController.m; sourceTree = "<group>"; };
+		7E7E948519F6CB7F00BC25B1 /* AbstractEntityGateway.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractEntityGateway.h; sourceTree = "<group>"; };
+		7E7E948619F6CB7F00BC25B1 /* AbstractEntityGateway.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractEntityGateway.m; sourceTree = "<group>"; };
+		7E7E948719F6CB7F00BC25B1 /* CoreDataGateway+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CoreDataGateway+Additions.h"; sourceTree = "<group>"; };
+		7E7E948819F6CB7F00BC25B1 /* CoreDataGateway+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CoreDataGateway+Additions.m"; sourceTree = "<group>"; };
+		7E7E948919F6CB7F00BC25B1 /* CoreDataGateway.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataGateway.h; sourceTree = "<group>"; };
+		7E7E948A19F6CB7F00BC25B1 /* CoreDataGateway.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataGateway.m; sourceTree = "<group>"; };
+		7E7E948B19F6CB7F00BC25B1 /* EntityGateway.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityGateway.h; sourceTree = "<group>"; };
+		7E7E949019F6CDED00BC25B1 /* OICategoryGateway.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OICategoryGateway.h; sourceTree = "<group>"; };
+		7E7E949119F6CDED00BC25B1 /* OICategoryGateway.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OICategoryGateway.m; sourceTree = "<group>"; };
+		7E7E949319F6D2EA00BC25B1 /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
+		7E7E949419F6D2EA00BC25B1 /* Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Category.m; sourceTree = "<group>"; };
 		7E7F2C7819F6591C001A6597 /* OIImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OIImageViewController.h; sourceTree = "<group>"; };
 		7E7F2C7919F6591C001A6597 /* OIImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIImageViewController.m; sourceTree = "<group>"; };
 		7E80F40319EFBFD200CBF8B0 /* OrganizeIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrganizeIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +135,37 @@
 				7E09389919F4BE700039BB17 /* OIImageCellView.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		7E7E948319F6CB7F00BC25B1 /* Utilits */ = {
+			isa = PBXGroup;
+			children = (
+				7E7E948419F6CB7F00BC25B1 /* CoreDataGatewayPatern */,
+			);
+			path = Utilits;
+			sourceTree = "<group>";
+		};
+		7E7E948419F6CB7F00BC25B1 /* CoreDataGatewayPatern */ = {
+			isa = PBXGroup;
+			children = (
+				7E7E948519F6CB7F00BC25B1 /* AbstractEntityGateway.h */,
+				7E7E948619F6CB7F00BC25B1 /* AbstractEntityGateway.m */,
+				7E7E948719F6CB7F00BC25B1 /* CoreDataGateway+Additions.h */,
+				7E7E948819F6CB7F00BC25B1 /* CoreDataGateway+Additions.m */,
+				7E7E948919F6CB7F00BC25B1 /* CoreDataGateway.h */,
+				7E7E948A19F6CB7F00BC25B1 /* CoreDataGateway.m */,
+				7E7E948B19F6CB7F00BC25B1 /* EntityGateway.h */,
+			);
+			path = CoreDataGatewayPatern;
+			sourceTree = "<group>";
+		};
+		7E7E948F19F6CD8D00BC25B1 /* Gateway */ = {
+			isa = PBXGroup;
+			children = (
+				7E7E949019F6CDED00BC25B1 /* OICategoryGateway.h */,
+				7E7E949119F6CDED00BC25B1 /* OICategoryGateway.m */,
+			);
+			path = Gateway;
 			sourceTree = "<group>";
 		};
 		7E80F3FA19EFBFD200CBF8B0 = {
@@ -214,6 +261,7 @@
 		7E80F44E19EFC08900CBF8B0 /* CORE */ = {
 			isa = PBXGroup;
 			children = (
+				7E7E948319F6CB7F00BC25B1 /* Utilits */,
 				7E81B47C19F3A350003E6654 /* CoreData */,
 			);
 			path = CORE;
@@ -231,7 +279,10 @@
 		7E81B47C19F3A350003E6654 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				7E7E948F19F6CD8D00BC25B1 /* Gateway */,
 				7E81B47D19F3A37E003E6654 /* OICategoryModel.xcdatamodeld */,
+				7E7E949319F6D2EA00BC25B1 /* Category.h */,
+				7E7E949419F6D2EA00BC25B1 /* Category.m */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -384,6 +435,11 @@
 				7E7D07B219F43AD2004D0657 /* OICategoryViewController.m in Sources */,
 				7E09389819F4BDE30039BB17 /* OIImageCell.m in Sources */,
 				7E7F2C7A19F6591C001A6597 /* OIImageViewController.m in Sources */,
+				7E7E948C19F6CB7F00BC25B1 /* AbstractEntityGateway.m in Sources */,
+				7E7E948D19F6CB7F00BC25B1 /* CoreDataGateway+Additions.m in Sources */,
+				7E7E948E19F6CB7F00BC25B1 /* CoreDataGateway.m in Sources */,
+				7E7E949219F6CDED00BC25B1 /* OICategoryGateway.m in Sources */,
+				7E7E949519F6D2EA00BC25B1 /* Category.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

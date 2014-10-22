@@ -13,7 +13,6 @@
                     </navigationBar>
                     <connections>
                         <segue destination="pdK-tC-gNa" kind="relationship" relationship="rootViewController" id="jwf-nf-Ncy"/>
-                        <segue destination="bua-gA-JBM" kind="modal" id="f6v-6r-HTL"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vrc-YN-NRK" userLabel="First Responder" sceneMemberID="firstResponder"/>

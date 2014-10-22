@@ -52,6 +52,8 @@
     
     self.curCategoryId = @0;
     
+    self.categoryGateway = [OICategoryGateway sharedGateway];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -211,7 +213,8 @@
 
         if(indexPath.section == 0){
             NSManagedObject *tempCat = [self.curCategories objectAtIndex:indexPath.row];
-            [managedObjectContext deleteObject:tempCat];
+            [self.categoryGateway deleteCategory:tempCat];
+            
             // remove children of this element
             [self removeChildrenById:[tempCat valueForKey:@"id"]];
             [self.curCategories removeObjectAtIndex:indexPath.row];
@@ -257,7 +260,7 @@
      */
     for(NSManagedObject *n in CategoriesToRemove){
         [self removeChildrenById:[n valueForKey:@"id"]];
-        [managedObjectContext deleteObject:n];
+        [self.categoryGateway deleteCategory:n];
     }
 }
 
@@ -303,7 +306,7 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Category"];
     NSPredicate *predicateID = [NSPredicate predicateWithFormat:@"parentId == %d", [self.curCategoryId integerValue]];
     [fetchRequest setPredicate:predicateID];
-    self.curCategories = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    self.curCategories = [self.categoryGateway categoriesById:self.curCategoryId];
     
     
     
